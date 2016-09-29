@@ -126,6 +126,11 @@ inline int32_t constrain_int32(const int32_t amt, const int32_t low, const int32
     return constrain_value(amt, low, high);
 }
 
+// constrain a uint8_t value
+static inline uint8_t constrain_uint8(uint8_t amt, uint8_t low, uint8_t high) {
+	return ((amt)<(low)?(low):((amt)>(high)?(high):(amt)));
+}
+
 // degrees -> radians
 static inline float radians(float deg)
 {

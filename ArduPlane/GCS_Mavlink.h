@@ -21,4 +21,5 @@ private:
     bool try_send_message(enum ap_message id) override;
     void packetReceived(const mavlink_status_t &status, mavlink_message_t &msg) override;
 
+    void handle_xcsoar_calculated_data(mavlink_message_t *msg);
 };
