@@ -92,6 +92,7 @@
 #include <AP_ICEngine/AP_ICEngine.h>
 
 #include <AudioVario/AudioVario.h>
+#include <Humidity/Humidity.h>
 
 #include "GCS_Mavlink.h"
 #include "quadplane.h"
@@ -818,6 +819,9 @@ private:
 
     // Vario
     AudioVario audio_vario;
+
+    // Humidity/Temperature sensor
+    Humidity hygrometer;
 
     // True airspeed (m/s)
     float airspeed_tas;

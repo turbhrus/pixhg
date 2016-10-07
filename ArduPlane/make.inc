@@ -59,3 +59,4 @@ LIBRARIES += AC_Fence
 LIBRARIES += AC_Avoidance
 LIBRARIES += AP_Tuning
 LIBRARIES += AudioVario
+LIBRARIES += Humidity
