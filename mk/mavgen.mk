@@ -2,10 +2,10 @@
 # mavlink header generation
 MAVLINK_DIR := $(SKETCHBOOK)/modules/mavlink/
 MESSAGE_DEFINITIONS := $(SKETCHBOOK)/modules/mavlink/message_definitions/v1.0
-MAVLINK_HEADERS := $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/ardupilotmega/mavlink.h $(wildcard $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/,*.h) $(wildcard $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/ardupilotmega,*.h)
+MAVLINK_HEADERS := $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/PIXHAWK/mavlink.h $(wildcard $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/,*.h) $(wildcard $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)/PIXHAWK,*.h)
 MAVLINK_OUTPUT_DIR := $(BUILDROOT)/libraries/GCS_MAVLink/include/mavlink/$(MAVLINK_SUBDIR)
 
-$(MAVLINK_HEADERS): $(MESSAGE_DEFINITIONS)/ardupilotmega.xml $(MESSAGE_DEFINITIONS)/common.xml
+$(MAVLINK_HEADERS): $(MESSAGE_DEFINITIONS)/PIXHAWK.xml $(MESSAGE_DEFINITIONS)/common.xml
 	echo "Generating MAVLink headers..."
 	#goto mavlink module directory and run the most recent generator script
 	echo "Generating C code using mavgen.py located at" $(SKETCHBOOK)/modules/mavlink/
