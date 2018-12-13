@@ -846,7 +846,7 @@ private:
     }xcsoar_data;
 
     // dummy variables used for printing debug messages by send_debugtext()
-    float debug_dummy1, debug_dummy2, debug_dummy3;
+    float debug_dummy[4] = {0.0, 0.0, 0.0, 0.0};
 
     void adjust_nav_pitch_throttle(void);
     void update_load_factor(void);
@@ -1153,7 +1153,7 @@ private:
     void update_audio_vario();
     float get_true_airspeed();
     void compensated_vario();
-    void send_debugtext(mavlink_channel_t chan);
+    void send_debugtext();
     void send_pixhawk_hg_fast(mavlink_channel_t chan);
     void send_pixhawk_hg_med(mavlink_channel_t chan);
     void send_pixhawk_hg_slow(mavlink_channel_t chan);
