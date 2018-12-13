@@ -63,6 +63,8 @@ const AP_Scheduler::Task Plane::scheduler_tasks[] = {
 	SCHED_TASK(update_audio_vario,     50,    200),
 	SCHED_TASK(compensated_vario,      10,    200),
 
+
+
 //    SCHED_TASK(read_radio,             50,    100),
 //    SCHED_TASK(update_speed_height,    50,    200),
 //    SCHED_TASK(update_flight_mode,    400,    100),
@@ -212,7 +214,7 @@ void Plane::update_trigger(void)
 #if CAMERA == ENABLED
     camera.trigger_pic_cleanup();
     if (camera.check_trigger_pin()) {
-        gcs_send_message(MSG_CAMERA_FEEDBACK);
+//        gcs_send_message(MSG_CAMERA_FEEDBACK);
         if (should_log(MASK_LOG_CAMERA)) {
             DataFlash.Log_Write_Camera(ahrs, gps, current_loc);
         }
@@ -346,12 +348,12 @@ void Plane::one_second_loop()
 void Plane::log_perf_info()
 {
     if (scheduler.debug() != 0) {
-        gcs_send_text_fmt(MAV_SEVERITY_INFO, "PERF: %u/%u Dt=%u/%u Log=%u\n",
-                          (unsigned)perf.num_long,
-                          (unsigned)perf.mainLoop_count,
-                          (unsigned)perf.G_Dt_max,
-                          (unsigned)perf.G_Dt_min,
-                          (unsigned)(DataFlash.num_dropped() - perf.last_log_dropped));
+//        gcs_send_text_fmt(MAV_SEVERITY_INFO, "PERF: %u/%u Dt=%u/%u Log=%u\n",
+//                          (unsigned)perf.num_long,
+//                          (unsigned)perf.mainLoop_count,
+//                          (unsigned)perf.G_Dt_max,
+//                          (unsigned)perf.G_Dt_min,
+//                          (unsigned)(DataFlash.num_dropped() - perf.last_log_dropped));
     }
 
     if (should_log(MASK_LOG_PM)) {
@@ -413,7 +415,7 @@ void Plane::airspeed_ratio_update(void)
     }
     const Vector3f &vg = gps.velocity();
     airspeed.update_calibration(vg, aparm.airspeed_max);
-    gcs_send_airspeed_calibration(vg);
+//    gcs_send_airspeed_calibration(vg);
 }
 
 
